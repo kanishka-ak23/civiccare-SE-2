@@ -1,32 +1,14 @@
 {
-  "name": "civiccare-civic-issues-reporting-and-management",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-  "build": "vite build && tsc",
-  "start": "node server.js"
-},
-
-  "dependencies": {
-    "@google/genai": "^1.38.0",
-    "@prisma/client": "^6.19.2",
-    "cors": "^2.8.6",
-    "express": "^5.2.1",
-    "multer": "^2.0.2",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "outDir": "./",
+    "rootDir": "./",
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": false
   },
-  "devDependencies": {
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.6",
-    "@types/multer": "^2.0.0",
-    "@types/node": "^22.14.0",
-    "@vitejs/plugin-react": "^5.0.0",
-    "concurrently": "^9.2.1",
-    "prisma": "^6.19.2",
-    "tsx": "^4.21.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.0"
-  }
+  "include": ["server.ts"],
+  "exclude": ["node_modules"]
 }
