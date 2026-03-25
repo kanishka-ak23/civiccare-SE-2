@@ -1,0 +1,41 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  role      String   // "CITIZEN" | "ADMIN"
+  createdAt DateTime @default(now())
+  
+  issues    Issue[]  @relation("CitizenIssues")
+}
+
+model Issue {
+  id              String   @id @default(uuid())
+  citizenId       String
+  citizen         User     @relation("CitizenIssues", fields: [citizenId], references: [id])
+  category        String
+  description     String
+  imageUrl        String
+  latitude        Float
+  longitude       Float
+  locationName    String?
+  aiIsReal        Boolean  @default(true)
+  aiPriorityScore Int      @default(0)
+  aiReasoning     String?
+  status          String   @default("PENDING") // PENDING, INVESTIGATING, IN_PROGRESS, RESOLVED, CLOSED, DISMISSED
+  assignedTo      String?
+  rejectionReason String?
+  progressNotes   String?
+  rating          Int?
+  feedback        String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}

@@ -1,0 +1,9 @@
+
+{
+  "name": "CivicCare - Civic Issues Reporting & Management",
+  "description": "A comprehensive portal for citizens to report civic issues like potholes and drainage to the government. Features an AI-powered priority scheduling algorithm to help administrators address critical issues first.",
+  "requestFramePermissions": [
+    "geolocation",
+    "camera"
+  ]
+}
